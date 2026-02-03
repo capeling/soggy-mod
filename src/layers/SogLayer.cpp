@@ -87,7 +87,8 @@ bool SogLayer::init(bool fromRope) {
     }
 
     GameManager::sharedState()->fadeInMusic(music);
-    OnSogLayer(this, rand).post();
+    m_rand = rand;
+    OnSogLayer().send(this);
     return true;
 }
 

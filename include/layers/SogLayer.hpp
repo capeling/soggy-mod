@@ -9,9 +9,12 @@ class SogLayer : public cocos2d::CCLayer {
     public:
     static SogLayer* create(bool fromRope);
     static cocos2d::CCScene* scene(bool fromRope);
+    int getRandom() {
+        return m_rand;
+    }
 
 protected:
-
+    int m_rand;
     bool init(bool fromRope);
 
     void onClose(CCObject*);
