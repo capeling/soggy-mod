@@ -48,7 +48,10 @@ struct SoggyLevelInfoLayer : Modify<SoggyLevelInfoLayer, LevelInfoLayer> {
 			return true;
 
 		auto sogSpr = CCSprite::createWithSpriteFrameName("GJ_soggyRope_001.png"_spr);
-		auto sogBtn = CCMenuItemExt::createSpriteExtra(sogSpr, [](auto selector){
+		auto sogBtn = CCMenuItemExt::createSpriteExtra(sogSpr, [this](auto selector){
+			if (m_isBusy) {
+				return;
+			}
 			CCDirector::sharedDirector()->pushScene(CCTransitionMoveInT::create(0.5f, SogLayer::scene(true)));
 		});
 		
