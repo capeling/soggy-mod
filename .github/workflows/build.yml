@@ -39,3 +39,5 @@ jobs:
       - uses: geode-sdk/build-geode-mod-docker/merge@main
         with:
           upload: true
+          zstd: true
+          optimize-pngs: true
